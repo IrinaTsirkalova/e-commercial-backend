@@ -4,6 +4,7 @@ package deltasource.internship.ecommercial;
  * Represents an item that has a product and product quantity
  */
 public class CartItem {
+
     private Product product;
     private int quantity;
 
@@ -45,7 +46,7 @@ public class CartItem {
      * Can be used to print item information
      * @return item information: product/label/, quantity, sum for item per quantity
      */
-    public String printItem(){
+    public String getItemInfo(){
         String itemInfo = "Printing item information:\n" +
                 "Label:" + product.getLabel() +
                 "; Price per one item: " + product.getPrice() +

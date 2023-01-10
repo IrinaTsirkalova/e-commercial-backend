@@ -8,13 +8,9 @@ import java.util.List;
  * Represents a cart that has zero, one or many items
  */
 public class Cart {
-    private List<CartItem> cartItems;
-    private double deliveryFee;
 
-    public Cart(){
-        cartItems = new ArrayList<>();
-        setCartItems(cartItems);
-    }
+    private List<CartItem> cartItems = new ArrayList<>();
+    private double deliveryFee;
 
     public List<CartItem> getCartItems() {
         List<CartItem> unmodifiableCartItems = Collections.unmodifiableList(cartItems);
@@ -41,13 +37,13 @@ public class Cart {
      * Can be used to print cart information
      * @return cart information: item information, delivery fee, final sum with VAT
      */
-    public String printCart(){
+    public String getCartInfo(){
         String cartInfo = "Printing cart information:\n";
         for(CartItem item : cartItems){
-           cartInfo += item.printItem();
+           cartInfo += item.getItemInfo();
         }
         calculateFinalSum();
-        cartInfo += "Delivery fee: " + getDeliveryFee() + "; " + printFinalSum();
+        cartInfo += "Delivery fee: " + getDeliveryFee() + "; " + getFinalSum();
         return cartInfo;
     }
 
@@ -74,11 +70,9 @@ public class Cart {
     }
 
     /**
-     * Calculates final sum with VAT
-     * and determines the delivery fee
-     * @return final sum - items' sum with delivery fee and VAT
+     * Calculates the delivery fee based on the cart sum and sets it
      */
-    public double calculateFinalSum(){
+    public void calculateDeliveryFeePerSum(){
         double cartSum = calculateCartSum();
         if(cartSum < 100){
             setDeliveryFee(10);
@@ -87,6 +81,15 @@ public class Cart {
         }else if(cartSum >= 200){
             setDeliveryFee(0);
         }
+    }
+
+    /**
+     * Calculates final sum with VAT and delivery fee
+     * @return final sum - items' sum with delivery fee and VAT
+     */
+    public double calculateFinalSum(){
+        double cartSum = calculateCartSum();
+        calculateDeliveryFeePerSum();
         double finalSum = cartSum + getDeliveryFee() + calculateVAT();
         return finalSum;
     }
@@ -95,7 +98,7 @@ public class Cart {
      * Can be used to print final sum/sum with VAT and delivery fee/
      * @return final sum/sum with VAT and delivery fee/
      */
-    public String printFinalSum(){
+    public String getFinalSum(){
         String finalSumInfo = " Final sum: " + calculateFinalSum();
         return finalSumInfo;
     }
