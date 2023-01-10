@@ -31,7 +31,7 @@ public class CartItem {
      */
     public double calculateSum(){
         double sumPerQuantity = product.getPrice() * quantity;
-        return Math.round(sumPerQuantity * 100) / 100.0;
+        return sumPerQuantity;
     }
 
     /**
@@ -41,6 +41,6 @@ public class CartItem {
     public String toString(){
         String productInfo = product.toString();
         return productInfo + ";\nPrinting item information:\nSum: "
-                + calculateSum() + "; Quantity: " + quantity + "\n";
+                + String.format("%,.2f", calculateSum()) + "; Quantity: " + quantity + "\n";
     }
 }

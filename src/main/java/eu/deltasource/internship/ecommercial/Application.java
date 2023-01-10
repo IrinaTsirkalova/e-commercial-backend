@@ -10,10 +10,10 @@ public class Application {
         Product bread = new Product("Bread", 1.10);
         Product water = new Product("Water", 0.80);
         Product cheese = new Product("Cheese", 15.90);
-        System.out.println(apple.toString());
-        System.out.println(bread.toString());
-        System.out.println(water.toString());
-        System.out.println(cheese.toString());
+        System.out.println(apple);
+        System.out.println(bread);
+        System.out.println(water);
+        System.out.println(cheese);
         System.out.println("----------------------------------------------------------");
         CartItem appleCart = new CartItem(apple, 6);
         CartItem breadCart = new CartItem(bread, 5);
@@ -26,8 +26,8 @@ public class Application {
         cart.addCartItem(appleCart);
         cart.addCartItem(breadCart);
         cart.addCartItem(cheeseCart);
-        System.out.println( cart.toString());
+        System.out.println(cart);
         cart.removeCartItem(breadCart);
-        System.out.println( cart.toString());
+        System.out.println(cart);
     }
 }

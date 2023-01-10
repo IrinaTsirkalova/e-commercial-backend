@@ -26,7 +26,7 @@ public class Cart {
      * @return cart information: item information, delivery fee, final sum with VAT
      */
     public String toString(){
-        String cartInfo ="";
+        String cartInfo = "";
         for(CartItem item : cartItems){
            cartInfo += item.toString();
         }
@@ -93,17 +93,19 @@ public class Cart {
 
     /**
      * Adds cart items in cart
-     * @param item
+     * @param item cart item
      */
-    public void addCartItem(CartItem item){
-        cartItems.add(item);
+    public boolean addCartItem(CartItem item){
+        return cartItems.add(item);
     }
 
     /**
-     * Removes cart items in cart
-     * @param item
+     *Removes cart items in cart
+     * @param item cart item
+     * @return false when item is not removed from cartItems and true when it is removed
      */
-    public void removeCartItem(CartItem item){
-        cartItems.remove(item);
+    public boolean removeCartItem(CartItem item){
+        boolean isRemoved = cartItems.remove(item);
+        return isRemoved;
     }
 }
