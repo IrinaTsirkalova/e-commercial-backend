@@ -38,12 +38,12 @@ public class Cart {
      * @return cart information: item information, delivery fee, final sum with VAT
      */
     public String getCartInfo(){
-        String cartInfo = "Printing cart information:\n";
+        String cartInfo ="";
         for(CartItem item : cartItems){
            cartInfo += item.getItemInfo();
         }
         calculateFinalSum();
-        cartInfo += "Delivery fee: " + getDeliveryFee() + "; " + getFinalSum();
+        cartInfo += "Printing cart information:\nDelivery fee: " + getDeliveryFee() + "; " + getFinalSum() + "\n";
         return cartInfo;
     }
 
@@ -76,7 +76,7 @@ public class Cart {
         double cartSum = calculateCartSum();
         if(cartSum < 100){
             setDeliveryFee(10);
-        }else if(cartSum < 200 && cartSum >= 100){
+        }else if(cartSum >= 100 && cartSum < 200 ){
             setDeliveryFee(5);
         }else if(cartSum >= 200){
             setDeliveryFee(0);

@@ -47,10 +47,9 @@ public class CartItem {
      * @return item information: product/label/, quantity, sum for item per quantity
      */
     public String getItemInfo(){
-        String itemInfo = "Printing item information:\n" +
-                "Label:" + product.getLabel() +
-                "; Price per one item: " + product.getPrice() +
-                "; Sum: " + calculateSum() + "; Quantity: " + quantity + "\n";
+        String productInfo = product.getProductInfo();
+        String itemInfo = productInfo + ";\nPrinting item information:\nSum: "
+                + calculateSum() + "; Quantity: " + quantity + "\n";
         return itemInfo;
-         }
+    }
 }

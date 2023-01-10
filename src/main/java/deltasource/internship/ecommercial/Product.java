@@ -28,7 +28,7 @@ public class Product {
     }
 
     public void setPrice(double price) {
-        if(price != 0 && price > 0){
+        if(price > 0){
             this.price = price;
         }
     }
@@ -39,7 +39,7 @@ public class Product {
      */
     public String getProductInfo(){
         String productInfo = "Printing product information:\n" +
-                "Label: " + getLabel() + "; Price: " + getPrice() + "\n";
+                "Label: " + getLabel() + "; Price: " + getPrice();
         return productInfo;
     }
 }
