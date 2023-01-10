@@ -1,7 +1,6 @@
-package deltasource.internship.ecommercial;
+package eu.deltasource.internship.ecommercial;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,17 +10,6 @@ public class Cart {
 
     private List<CartItem> cartItems = new ArrayList<>();
     private double deliveryFee;
-
-    public List<CartItem> getCartItems() {
-        List<CartItem> unmodifiableCartItems = Collections.unmodifiableList(cartItems);
-        return unmodifiableCartItems;
-    }
-
-    public void setCartItems(List<CartItem> cartItems) {
-        if(cartItems != null){
-            this.cartItems = cartItems;
-        }
-    }
 
     public double getDeliveryFee() {
         return deliveryFee;
@@ -37,10 +25,10 @@ public class Cart {
      * Can be used to print cart information
      * @return cart information: item information, delivery fee, final sum with VAT
      */
-    public String getCartInfo(){
+    public String toString(){
         String cartInfo ="";
         for(CartItem item : cartItems){
-           cartInfo += item.getItemInfo();
+           cartInfo += item.toString();
         }
         calculateFinalSum();
         cartInfo += "Printing cart information:\nDelivery fee: " + getDeliveryFee() + "; " + getFinalSum() + "\n";

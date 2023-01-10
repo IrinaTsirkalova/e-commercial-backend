@@ -1,4 +1,4 @@
-package deltasource.internship.ecommercial;
+package eu.deltasource.internship.ecommercial;
 
 /**
  * Represents a product that has a label and a price
@@ -37,9 +37,8 @@ public class Product {
      * Can be used to print product information
      * @return product information - label and price
      */
-    public String getProductInfo(){
-        String productInfo = "Printing product information:\n" +
+    public String toString(){
+        return "Printing product information:\n" +
                 "Label: " + getLabel() + "; Price: " + getPrice();
-        return productInfo;
     }
 }

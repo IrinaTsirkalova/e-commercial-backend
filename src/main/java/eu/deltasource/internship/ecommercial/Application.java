@@ -1,4 +1,4 @@
-package deltasource.internship.ecommercial;
+package eu.deltasource.internship.ecommercial;
 
 /**
  * Represents the starting point of the program
@@ -10,24 +10,24 @@ public class Application {
         Product bread = new Product("Bread", 1.10);
         Product water = new Product("Water", 0.80);
         Product cheese = new Product("Cheese", 15.90);
-        System.out.println(apple.getProductInfo());
-        System.out.println(bread.getProductInfo());
-        System.out.println(water.getProductInfo());
-        System.out.println(cheese.getProductInfo());
+        System.out.println(apple.toString());
+        System.out.println(bread.toString());
+        System.out.println(water.toString());
+        System.out.println(cheese.toString());
         System.out.println("----------------------------------------------------------");
         CartItem appleCart = new CartItem(apple, 6);
         CartItem breadCart = new CartItem(bread, 5);
         CartItem cheeseCart = new CartItem(cheese, 30);
-        System.out.println(appleCart.getItemInfo());
-        System.out.println(breadCart.getItemInfo());
-        System.out.println(cheeseCart.getItemInfo());
+        System.out.println(appleCart);
+        System.out.println(breadCart);
+        System.out.println(cheeseCart);
         System.out.println("----------------------------------------------------------");
         Cart cart = new Cart();
         cart.addCartItem(appleCart);
         cart.addCartItem(breadCart);
         cart.addCartItem(cheeseCart);
-        System.out.println( cart.getCartInfo());
+        System.out.println( cart.toString());
         cart.removeCartItem(breadCart);
-        System.out.println( cart.getCartInfo());
+        System.out.println( cart.toString());
     }
 }

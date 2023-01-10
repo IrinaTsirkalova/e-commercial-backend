@@ -1,4 +1,4 @@
-package deltasource.internship.ecommercial;
+package eu.deltasource.internship.ecommercial;
 
 /**
  * Represents an item that has a product and product quantity
@@ -13,18 +13,10 @@ public class CartItem {
         setQuantity(quantity);
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
     public void setProduct(Product product) {
         if(product != null){
             this.product = product;
         }
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public void setQuantity(int quantity) {
@@ -46,10 +38,9 @@ public class CartItem {
      * Can be used to print item information
      * @return item information: product/label/, quantity, sum for item per quantity
      */
-    public String getItemInfo(){
-        String productInfo = product.getProductInfo();
-        String itemInfo = productInfo + ";\nPrinting item information:\nSum: "
+    public String toString(){
+        String productInfo = product.toString();
+        return productInfo + ";\nPrinting item information:\nSum: "
                 + calculateSum() + "; Quantity: " + quantity + "\n";
-        return itemInfo;
     }
 }
